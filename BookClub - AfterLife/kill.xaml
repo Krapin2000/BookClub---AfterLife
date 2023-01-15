@@ -1,0 +1,36 @@
+﻿<Window x:Class="BookClub___AfterLife.kill"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookClub___AfterLife"
+        mc:Ignorable="d"
+        Title="kill" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="362*"/>
+            <ColumnDefinition Width="123*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="94*"/>
+            <RowDefinition Height="235*"/>
+            <RowDefinition Height="105*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF757474" Offset="1"/>
+                <GradientStop Color="#FFB7B7B7" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox x:Name="Id_user" VerticalAlignment="Top" MaxLength="250"  Height="44" Margin="10,31,10,0" BorderBrush="#b5ac8a" Grid.ColumnSpan="3" />
+        <TextBox x:Name="Id_user_Copy" VerticalAlignment="Top" MaxLength="250"  Height="212" Margin="10,13,10,0" BorderBrush="#b5ac8a" Grid.Row="1" Grid.ColumnSpan="3" />
+        <Button x:Name="btnBookOrder" Click="btnKill_Click" Margin="10,235,11,18" Grid.Row="1" Content="Исключить" Grid.Column="1" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,10,0,70" TextWrapping="Wrap" Width="220" FontFamily="Mongolian Baiti" FontSize="14" Grid.ColumnSpan="2"><Run Text="Введите id "/><Run Text="пользователя"/><Run Language="ru-ru" Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="26,82,0,227" TextWrapping="Wrap" Width="220" FontFamily="Mongolian Baiti" FontSize="14" Grid.ColumnSpan="2" Grid.RowSpan="2"><Run Language="ru-ru" Text="Причина исключения"/><Run Text=":"/></TextBlock>
+
+    </Grid>
+</Window>
