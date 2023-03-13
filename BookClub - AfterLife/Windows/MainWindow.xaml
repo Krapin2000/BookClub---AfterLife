@@ -1,0 +1,66 @@
+﻿<Window x:Class="BookClub___AfterLife.MainWindow"
+
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookClub___AfterLife"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        WindowStyle="None"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="{DynamicResource blueLock_back}" >
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+                <Menu  Background="Transparent" >
+                    <MenuItem  Header="Меню" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Visibility="Visible">
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Выдать книгу" Click="Give_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Продлить книгу" Click="Longer_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Вернуть книгу" Click="Close_Click"/>
+                    </MenuItem>
+                    <MenuItem  Header="Добавить"  Visibility="Visible">
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Регистрация" Click="Newbe_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Поставка книг" Click="Add_Click"/>
+                    </MenuItem>
+                    <MenuItem  Header="Удалить"  Visibility="Visible">
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Удалить человека" Click="Kill_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Удалить книгу" Click="Upp_Click"/>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="━" Click="Hide_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="◻" Click="Extend_Click"  FontSize="10px" Visibility="Visible" />
+                <Button Template="{StaticResource bluLock_exit_button}" Content="" Click="Exit_Click"/>
+            </StackPanel>
+        </DockPanel>
+        <Grid>
+            <Grid.ContextMenu>
+                <ContextMenu Width="150px" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                    <MenuItem Template="{StaticResource bluLock_Menuitem}"  Header="Удалить выделенное" />
+                </ContextMenu>
+            </Grid.ContextMenu>
+            <Frame x:Name="Peopple" Source="Pages\People.xaml" Visibility="Collapsed"/>
+            <Frame x:Name="Books" Source="Pages\Books.xaml" Visibility="Collapsed" />
+            <Frame x:Name="Genre" Source="Pages\Genre.xaml" Visibility="Collapsed" />
+            <Frame x:Name="Author" Source="Pages\Author.xaml" Visibility="Visible" />
+            <Frame x:Name="Order" Source="Pages\Order.xaml" Visibility="Visible" />
+            <Frame x:Name="Client" Source="Pages\Client.xaml" Visibility="Visible" />
+        </Grid>
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Bottom" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+                <Button Template="{StaticResource bluLock_menu_button}" Content="Книги" Click="Books_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button}" Content="Работники" Click="Peopples_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button}" Content="Клиент" Click="Client_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button}" Content="Жанры" Click="Genre_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button}" Content="Авторы" Click="Author_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button}" Content="Аренды" Click="Order_Click" Visibility="Visible"/>
+                
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+                <TextBlock x:Name="Helper" Style="{DynamicResource bluLock_text_block}" Background="Transparent" />
+            </StackPanel>
+        </DockPanel>
+        
+    </Grid>
+</Window>

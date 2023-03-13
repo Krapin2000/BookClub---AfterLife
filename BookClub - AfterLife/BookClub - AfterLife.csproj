@@ -52,6 +52,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BookClub___AfterLife.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Avalonia, Version=0.10.18.0, Culture=neutral, PublicKeyToken=c8d484a7012f9a8b, processorArchitecture=MSIL">
       <HintPath>..\packages\Avalonia.0.10.18\lib\net461\Avalonia.dll</HintPath>
@@ -197,63 +200,84 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Add_book.xaml.cs">
+    <Compile Include="Windows\Add\Add_book.xaml.cs">
       <DependentUpon>Add_book.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Book.cs" />
-    <Compile Include="Books.xaml.cs">
+    <Compile Include="class\Book.cs" />
+    <Compile Include="Windows\Pages\Author.xaml.cs">
+      <DependentUpon>Author.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Pages\Books.xaml.cs">
       <DependentUpon>Books.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Close_b.xaml.cs">
+    <Compile Include="Windows\Menu\Close_b.xaml.cs">
       <DependentUpon>Close_b.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DB.cs" />
-    <Compile Include="GridClass.cs" />
-    <Compile Include="kill.xaml.cs">
+    <Compile Include="class\DB.cs" />
+    <Compile Include="class\GridClass.cs" />
+    <Compile Include="Windows\Pages\Client.xaml.cs">
+      <DependentUpon>Client.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Pages\Genre.xaml.cs">
+      <DependentUpon>Genre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Delete\kill.xaml.cs">
       <DependentUpon>kill.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Longer_b.xaml.cs">
+    <Compile Include="Windows\Menu\Longer_b.xaml.cs">
       <DependentUpon>Longer_b.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Newbe.xaml.cs">
+    <Compile Include="Windows\Add\Newbe.xaml.cs">
       <DependentUpon>Newbe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="People.xaml.cs">
+    <Compile Include="Windows\Pages\Order.xaml.cs">
+      <DependentUpon>Order.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Pages\People.xaml.cs">
       <DependentUpon>People.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upp.xaml.cs">
+    <Compile Include="Windows\Delete\Upp.xaml.cs">
       <DependentUpon>Upp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
+    <Compile Include="Windows\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window2.xaml.cs">
-      <DependentUpon>Window2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Zakaz.xaml.cs">
+    <Compile Include="Windows\Menu\Zakaz.xaml.cs">
       <DependentUpon>Zakaz.xaml</DependentUpon>
     </Compile>
-    <Page Include="Add_book.xaml">
+    <Page Include="Windows\Add\Add_book.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Books.xaml">
+    <Page Include="Windows\Pages\Author.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Close_b.xaml">
+    <Page Include="Windows\Pages\Books.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="kill.xaml">
+    <Page Include="Windows\Menu\Close_b.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Longer_b.xaml">
+    <Page Include="Windows\Pages\Client.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\Pages\Genre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Delete\kill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Menu\Longer_b.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -261,31 +285,31 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Newbe.xaml">
+    <Page Include="Windows\Add\Newbe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="People.xaml">
+    <Page Include="Windows\Pages\Order.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upp.xaml">
+    <Page Include="Windows\Pages\People.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Window2.xaml">
+    <Page Include="Windows\Delete\Upp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Zakaz.xaml">
+    <Page Include="Windows\Window1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Menu\Zakaz.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -308,7 +332,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="6426063.eps" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -317,9 +340,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="6426064.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -334,7 +354,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="cover.jpg" />
+    <Resource Include="resources\cover.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\zaglushka.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

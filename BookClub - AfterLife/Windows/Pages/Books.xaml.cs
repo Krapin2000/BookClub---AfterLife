@@ -37,7 +37,7 @@ namespace BookClub___AfterLife
             DB da = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("Select Bo_name as 'Название', Author.Au_name as 'Имя автора', Bo_amount as 'Количество экземпляров', Bo_link as 'Ссылка на картинку' from book,author WHERE bo_au_id = author.Au_id ", da.GetConnection());
+            MySqlCommand command = new MySqlCommand("Select Bo_name as 'Название', Author.Au_name as 'Имя автора', Bo_amount as 'Количество экземпляров', Bo_link as 'Ссылка на картинку', state.st_description as 'Статус' from book,state,author WHERE bo_au_id = author.Au_id and Bo_St_id = state.st_id and Bo_St_id not in(1)", da.GetConnection());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             Tablichka.ItemsSource = null;
@@ -56,10 +56,6 @@ namespace BookClub___AfterLife
             //}
             //Tablichka.ItemsSource = result;
         }
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-            
-        }
+
     }
 }

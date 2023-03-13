@@ -32,16 +32,34 @@ namespace WpfApp1Shink
             DB da = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("Select * from worker where Wo_login = @uL", da.GetConnection());
-            command.Parameters.Add("@uL",MySqlDbType.VarChar).Value= Login1.Text;
+            MySqlCommand command = new MySqlCommand("Select * from worker where Wo_login = @uL and Wo_pass = @uP", da.GetConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = Логин.Text;
+            command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = Пароль.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
-            if (table.Rows.Count>0)
+            if (table.Rows.Count > 0)
             {
-                MessageBox.Show("Всё ок");
+                
                 Close();
             }
-            else { MessageBox.Show("Неправильный пароль"); }
+            else {Warn.Padding = new Thickness(0); Warn.Text = "Неправильные данные"; }
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private void Hide_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void Extend_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState != WindowState.Maximized)
+            {
+                WindowState = WindowState.Maximized;
+            }           
+        }
+
     }
 }

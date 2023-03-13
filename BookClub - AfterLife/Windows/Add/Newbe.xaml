@@ -1,0 +1,67 @@
+﻿<Window x:Class="BookClub___AfterLife.Newbe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookClub___AfterLife.Windows"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        WindowStyle="None"
+        Title="Newbe" Height="455" Width="350">
+    <Grid Background="{DynamicResource blueLock_back}">
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="━" Click="Hide_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="◻" Click="Extend_Click"  FontSize="10px" Visibility="Visible" />
+                <Button Template="{StaticResource bluLock_exit_button}" Content="" Click="Exit_Click"/>
+            </StackPanel>
+
+        </DockPanel>
+        <Grid Height="390px">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="339*"/>
+                <RowDefinition Height="35*"/>
+            </Grid.RowDefinitions>
+            <StackPanel   Grid.Row="1" Grid.Column="0"  >
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Ф.И.О." Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Wo_name"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Логин" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Wo_login"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Пароль" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Wo_pass"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Телефон" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Wo_phone"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Должность" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Wo_Po_id"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Отделение" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Wo_Pa_id"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" Width="200">
+                <Button Template="{StaticResource bluLock_button}" Content="Принять" Click="Add_work_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_button}" Content="Отмена" Click="Exit_Click"  FontSize="10px" Visibility="Visible" />
+            </StackPanel>
+        </Grid>
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Bottom" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

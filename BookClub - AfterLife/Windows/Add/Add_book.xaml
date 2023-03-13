@@ -1,0 +1,79 @@
+﻿<Window x:Class="BookClub___AfterLife.Add_book"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookClub___AfterLife"
+        mc:Ignorable="d"
+         WindowState="Normal"
+        WindowStyle="None"
+        Title="Add_book" Height="450" Width="600">
+    <Grid Background="{DynamicResource blueLock_back}">
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="━" Click="Hide_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="◻" Click="Extend_Click"  FontSize="10px" Visibility="Visible" />
+                <Button Template="{StaticResource bluLock_exit_button}" Content="" Click="Exit_Click"/>
+            </StackPanel>
+
+        </DockPanel>
+        <Grid Height="390px">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140*"/>
+                <RowDefinition Height="203*"/>
+                <RowDefinition Height="47*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="107*"/>
+                <ColumnDefinition Width="93*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" >
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Label Content="Название" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Bo_name"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Label Content="Количество" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Bo_amount"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Label Content="Ссылка на обложку" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Bo_link"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel   Grid.Row="1" Grid.Column="0" >
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,20,0,0">
+                    <Label Content="Автор" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Bo_Au_id"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Label Content="Отделение" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Bo_Pa_id"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Label Content="Жанры" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Bo_Genre"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Margin="0,0,10,0"  >
+                <Label Content="Описание" Style="{DynamicResource bluLock_label}" />
+                <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" x:Name="Bo_about"  Style="{DynamicResource bluLock_text_box2}" Height="119"/>
+            </StackPanel>
+            <Image Grid.Column="1" Grid.Row="1" Source ="C:\Users\User\source\repos\Krapin2000\BookClub---AfterLife\BookClub - AfterLife\resources\zaglushka.png" Margin="0,0,10,0">
+            </Image>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Template="{StaticResource bluLock_button}" Content="Принять" Click="Add_work_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_button}" Content="Отмена" Click="Exit_Click"  FontSize="10px" Visibility="Visible" />
+            </StackPanel>
+        </Grid>
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Bottom" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

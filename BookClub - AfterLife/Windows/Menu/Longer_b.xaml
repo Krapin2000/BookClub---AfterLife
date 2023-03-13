@@ -1,0 +1,63 @@
+﻿<Window x:Class="BookClub___AfterLife.Longer_b"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookClub___AfterLife"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        WindowStyle="None"
+        Title="Longer_b" Height="350" Width="350">
+    <Grid Background="{DynamicResource blueLock_back}">
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="━" Click="Hide_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_menu_button2}" Content="◻" Click="Extend_Click"  FontSize="10px" Visibility="Visible" />
+                <Button Template="{StaticResource bluLock_exit_button}" Content="" Click="Exit_Click"/>
+            </StackPanel>
+
+        </DockPanel>
+        <Grid Height="290px">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140*"/>
+                <RowDefinition Height="203*"/>
+                <RowDefinition Height="47*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="26*"/>
+                <ColumnDefinition Width="293*"/>
+                <ColumnDefinition Width="31*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"  >
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Имя Клиента" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Or_Cl_id"  Style="{DynamicResource bluLock_text_box}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Center" Orientation="Vertical"   >
+                    <Label Content="Описание" Style="{DynamicResource bluLock_label}" />
+                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" x:Name="Or_description"  Style="{DynamicResource bluLock_text_box2}" Height="119"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,0,0,10">
+                    <Label Content="Название книги" Style="{DynamicResource bluLock_label}" />
+                    <TextBox x:Name="Or_Bo_id"  Style="{DynamicResource bluLock_text_box}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Column="1"  Width="200">
+                <Button Template="{StaticResource bluLock_button}" Content="Принять" Click="Longer_Click" Visibility="Visible"/>
+                <Button Template="{StaticResource bluLock_button}" Content="Отмена" Click="Exit_Click"  FontSize="10px" Visibility="Visible" />
+            </StackPanel>
+        </Grid>
+        <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Bottom" >
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+            </StackPanel>
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,15,0">
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
