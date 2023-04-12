@@ -144,6 +144,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\Connector NET 8.0\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -204,6 +205,12 @@
       <DependentUpon>Add_book.xaml</DependentUpon>
     </Compile>
     <Compile Include="class\Book.cs" />
+    <Compile Include="Windows\Add\NewCli.xaml.cs">
+      <DependentUpon>NewCli.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Delete\Leave.xaml.cs">
+      <DependentUpon>Leave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Pages\Author.xaml.cs">
       <DependentUpon>Author.xaml</DependentUpon>
     </Compile>
@@ -246,6 +253,14 @@
       <DependentUpon>Zakaz.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\Add\Add_book.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Add\NewCli.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Delete\Leave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

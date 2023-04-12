@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Normal"
         WindowStyle="None"
-        Title="Zakaz" Height="350" Width="600">
+        Title="Zakaz" Height="350" Width="600" Loaded="Form_Loaded">
     <Grid Background="{DynamicResource blueLock_back}">
         <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
@@ -32,7 +32,7 @@
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" >
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
                     <Label Content="Имя клиента " Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Or_Cl_id"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox x:Name="Or_Cl_id"  Width="300"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Center" Orientation="Vertical"   >
                     <Label Content="Описание" Style="{DynamicResource bluLock_label}" />
@@ -43,7 +43,7 @@
 
                 <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10">
                     <Label Content="Название книги" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Or_Bo_id"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox x:Name="Or_Bo_id"  Width="300"/>
                 </StackPanel>
             </StackPanel>
             <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source ="C:\Users\User\source\repos\Krapin2000\BookClub---AfterLife\BookClub - AfterLife\resources\zaglushka.png" Margin="0,0,10,0">

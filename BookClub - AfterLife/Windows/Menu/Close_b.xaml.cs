@@ -28,14 +28,33 @@ namespace BookClub___AfterLife
         {
             InitializeComponent();
         }
-
+        public DataTable table = new DataTable();
+        public DataTable worker = new DataTable();
+        public MySqlDataAdapter adapter = new MySqlDataAdapter();
+        static DB da = new DB();
+        public MySqlCommand command = new MySqlCommand("", da.GetConnection());
+        private void Form_Loaded(object sender, RoutedEventArgs e)
+        {
+            command = new MySqlCommand("Select Cl_name from client ", da.GetConnection());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            Cl_name.ItemsSource = null;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Cl_name.Items.Add(table.DefaultView[i][0].ToString());
+            }
+            command = new MySqlCommand("Select Bo_name from book ", da.GetConnection());
+            adapter.SelectCommand = command;
+            adapter.Fill(worker);
+            Bo_name.ItemsSource = null;
+            for (int i = 0; i < worker.Rows.Count; i++)
+            {
+                Bo_name.Items.Add(worker.DefaultView[i][0].ToString());
+            }
+        }
         private void Close_b_Click(object sender, RoutedEventArgs e)
         {
-            DB da = new DB();
-            DataTable table = new DataTable();
-            DataTable worker = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("Select Cl_id from client where Cl_name = @uL", da.GetConnection());
+            command = new MySqlCommand("Select Cl_id from client where Cl_name = @uL", da.GetConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = Cl_name.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -44,7 +63,7 @@ namespace BookClub___AfterLife
             adapter.SelectCommand = command1;
             adapter.Fill(worker);
 
-            if (Check(table, worker))
+            if (Check(table, worker) || Cl_name.Text!="" || Bo_name.Text != "")
             {
                 command1 = new MySqlCommand("DELETE FROM orders where Or_Cl_id = (Select Cl_id from client where Cl_name = @uL LIMIT 1) and Or_Bo_id = (Select Bo_id from book where Bo_name = @wpai LIMIT 1)", da.GetConnection());
                 command1.Parameters.Add("@uL", MySqlDbType.VarChar).Value = Cl_name.Text;
@@ -52,9 +71,10 @@ namespace BookClub___AfterLife
                 da.openConection();
                 command1.ExecuteNonQuery();
                 da.closeConection();
+                MessageBox.Show("Выполненно");
                 Close();
             }
-
+            else { MessageBox.Show("Введите данные"); }
 
         }
 

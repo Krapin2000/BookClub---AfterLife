@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Normal"
         WindowStyle="None"
-        Title="Newbe" Height="455" Width="350">
+        Title="Newbe" Height="455" Width="350" Loaded="Form_Loaded">
     <Grid Background="{DynamicResource blueLock_back}">
         <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
@@ -45,11 +45,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
                     <Label Content="Должность" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Wo_Po_id"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox x:Name="Wo_Po_id" Width="250px" SelectedIndex="0"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
                     <Label Content="Отделение" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Wo_Pa_id"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox x:Name="Wo_Pa_id" Width="250px" SelectedIndex="0"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" Width="200">

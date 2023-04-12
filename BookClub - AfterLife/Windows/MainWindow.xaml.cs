@@ -1,4 +1,6 @@
 ﻿
+using BookClub___AfterLife.Windows.Add;
+using BookClub___AfterLife.Windows.Delete;
 using BookClub___AfterLife.Windows.Pages;
 using System;
 using System.Collections.Generic;
@@ -108,6 +110,10 @@ namespace BookClub___AfterLife
         {
             new Newbe().Show();
         }
+        private void NewCli_Click(object sender, RoutedEventArgs e)
+        {
+            new NewCli().Show();
+        }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             new Close_b().Show();
@@ -115,6 +121,10 @@ namespace BookClub___AfterLife
         private void Kill_Click(object sender, RoutedEventArgs e)
         {
             new kill().Show();
+        }
+        private void Leave_Click(object sender, RoutedEventArgs e)
+        {
+            new Leave().Show();
         }
         private void Upp_Click(object sender, RoutedEventArgs e)
         {

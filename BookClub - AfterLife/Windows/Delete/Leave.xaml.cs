@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,24 +15,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1Shink;
 
-namespace BookClub___AfterLife
+namespace BookClub___AfterLife.Windows.Delete
 {
     /// <summary>
-    /// Логика взаимодействия для kill.xaml
+    /// Логика взаимодействия для Leave.xaml
     /// </summary>
-    public partial class kill : Window
+    public partial class Leave : Window
     {
-        public kill()
+        public Leave()
         {
             InitializeComponent();
         }
+
         public DataTable table = new DataTable();
+
         public MySqlDataAdapter adapter = new MySqlDataAdapter();
         static DB da = new DB();
         public MySqlCommand command = new MySqlCommand("", da.GetConnection());
         private void Form_Loaded(object sender, RoutedEventArgs e)
         {
-            command = new MySqlCommand("Select Wo_name from worker ", da.GetConnection());
+            command = new MySqlCommand("Select Cl_name from client ", da.GetConnection());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             K_name.ItemsSource = null;
@@ -44,15 +45,16 @@ namespace BookClub___AfterLife
         }
         private void Kill_Click(object sender, RoutedEventArgs e)
         {
-            command = new MySqlCommand("Select Wo_id from worker where Wo_name = @uL", da.GetConnection());
-            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = K_name.Text;
+            table = new DataTable();
+            command = new MySqlCommand("Select Cl_id from client where Cl_name = @uL", da.GetConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = K_name.Text.ToString();
             adapter.SelectCommand = command;
             adapter.Fill(table);
-            MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
+            
             if (Check(table) && K_name.Text.Length != 0)
             {
-                command = new MySqlCommand("UPDATE worker SET Wo_St_id = 2 WHERE Wo_name = @uL", da.GetConnection());
-                command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = K_name.Text;
+                command = new MySqlCommand("UPDATE client SET Wo_St_id = 2 WHERE Cl_name = @uL", da.GetConnection());
+                command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = K_name.SelectedItem.ToString();
                 adapter.SelectCommand = command;
                 da.openConection();
                 command.ExecuteNonQuery();

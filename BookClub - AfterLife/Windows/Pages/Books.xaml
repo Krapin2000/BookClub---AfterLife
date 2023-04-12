@@ -12,6 +12,11 @@
         <DataGrid Margin="0,30,0,30" x:Name="Tablichka"   Loaded="grid_Loaded"
                    DataGrid.CanUserResizeColumns="True"  DataGrid.CanUserResizeRows="False" DataGrid.CanUserAddRows="False" 
                   >
+            <DataGrid.ContextMenu>
+                <ContextMenu Width="150px" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                    <MenuItem Template="{StaticResource bluLock_Menuitem}"  Header="Удалить выделенное" Click="MenuItem_Click" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </Page>

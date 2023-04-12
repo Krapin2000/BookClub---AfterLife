@@ -7,7 +7,7 @@
         mc:Ignorable="d"
          WindowState="Normal"
         WindowStyle="None"
-        Title="Add_book" Height="450" Width="600">
+        Title="Add_book" Height="450" Width="600" Loaded="Form_Loaded">
     <Grid Background="{DynamicResource blueLock_back}">
         <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
@@ -47,15 +47,15 @@
 
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,20,0,0">
                     <Label Content="Автор" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Bo_Au_id"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox x:Name="Bo_Au_id" Width="250px" SelectedIndex="0"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
                     <Label Content="Отделение" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Bo_Pa_id"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox x:Name="Bo_Pa_id" Width="250px" SelectedIndex="0"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0">
                     <Label Content="Жанры" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Bo_Genre"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox x:Name="Bo_Genre" Width="250px" SelectedIndex="0"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Margin="0,0,10,0"  >

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Normal"
         WindowStyle="None"
-        Title="Longer_b" Height="350" Width="350">
+        Title="Longer_b" Height="350" Width="350" Loaded="Form_Loaded">
     <Grid Background="{DynamicResource blueLock_back}">
         <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
@@ -33,18 +33,21 @@
             <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"  >
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
                     <Label Content="Имя Клиента" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Or_Cl_id"  Style="{DynamicResource bluLock_text_box}" />
+                    <ComboBox x:Name="Or_Cl_id"  Width="275" DropDownClosed="OnDropDownClosed" />
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Center" Orientation="Vertical"   >
-                    <Label Content="Описание" Style="{DynamicResource bluLock_label}" />
-                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" x:Name="Or_description"  Style="{DynamicResource bluLock_text_box2}" Height="119"/>
+                    <Label Content="Описания взятых книг" Style="{DynamicResource bluLock_label}" />
+                    <ComboBox x:Name="Or_description" Width="275"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
-
-                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,0,0,10">
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" >
+                <StackPanel Orientation="Vertical" >
                     <Label Content="Название книги" Style="{DynamicResource bluLock_label}" />
-                    <TextBox x:Name="Or_Bo_id"  Style="{DynamicResource bluLock_text_box}"/>
+                    <ComboBox DropDownClosed="OnDropDownClosed"  x:Name="Or_Bo_id"  Width="275"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" >
+                    <Label Content="Описание" Style="{DynamicResource bluLock_label}" />
+                    <TextBox   x:Name="Or_DDescription"  Width="275" Style="{DynamicResource bluLock_text_box2}" Height="70"/>
                 </StackPanel>
             </StackPanel>
 

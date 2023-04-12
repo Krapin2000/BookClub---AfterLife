@@ -11,6 +11,7 @@
     <Grid Loaded="Grid_Loaded">
         <DataGrid Margin="0,30,0,30"  x:Name="Tablichka4"  ColumnWidth="*"
                    DataGrid.CanUserResizeColumns="True" DataGrid.CanUserResizeRows="False" DataGrid.CanUserAddRows="False" >
+    
         </DataGrid>
     </Grid>
 </Page>

@@ -26,18 +26,29 @@ namespace BookClub___AfterLife
         {
             InitializeComponent();
         }
-
+        public DataTable table = new DataTable();
+        public MySqlDataAdapter adapter = new MySqlDataAdapter();
+        static DB da = new DB();
+        public MySqlCommand command = new MySqlCommand("", da.GetConnection());
+        private void Form_Loaded(object sender, RoutedEventArgs e)
+        {
+            command = new MySqlCommand("Select Bo_name from book ", da.GetConnection());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            K_name.ItemsSource = null;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                K_name.Items.Add(table.DefaultView[i][0].ToString());
+            }
+        }
         private void Upp_Click(object sender, RoutedEventArgs e)
         {
-            DB da = new DB();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("Select Bo_id from book where Bo_name = @uL", da.GetConnection());
+            command = new MySqlCommand("Select Bo_id from book where Bo_name = @uL", da.GetConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = K_name.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
             MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
-            if (Check(table))
+            if (Check(table) && K_name.Text != "")
             {
                 command = new MySqlCommand("UPDATE book SET Bo_St_id = 2 WHERE Bo_name = @uL", da.GetConnection());
                 command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = K_name.Text;
@@ -45,9 +56,10 @@ namespace BookClub___AfterLife
                 da.openConection();
                 command.ExecuteNonQuery();
                 da.closeConection();
+                MessageBox.Show("Выполненно");
                 Close();
             }
-
+            else { MessageBox.Show("Введите данные"); }
 
         }
 

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using WpfApp1Shink;
 
 namespace BookClub___AfterLife
@@ -26,14 +27,33 @@ namespace BookClub___AfterLife
         {
             InitializeComponent();
         }
-
+        public DataTable table = new DataTable();
+        DataTable worker = new DataTable();
+        public MySqlDataAdapter adapter = new MySqlDataAdapter();
+        static DB da = new DB();
+        public MySqlCommand command = new MySqlCommand("", da.GetConnection());
+        private void Form_Loaded(object sender, RoutedEventArgs e)
+        {
+            command = new MySqlCommand("Select Cl_name from client ", da.GetConnection());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            Or_Cl_id.ItemsSource = null;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Or_Cl_id.Items.Add(table.DefaultView[i][0].ToString());
+            }
+            command = new MySqlCommand("Select Bo_name from book ", da.GetConnection());
+            adapter.SelectCommand = command;
+            adapter.Fill(worker);
+            Or_Bo_id.ItemsSource = null;
+            for (int i = 0; i < worker.Rows.Count; i++)
+            {
+                Or_Bo_id.Items.Add(worker.DefaultView[i][0].ToString());
+            }
+        }
         private void Zakaz_Click(object sender, RoutedEventArgs e)
         {
-            DB da = new DB();
-            DataTable table = new DataTable();
-            DataTable worker = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("Select Bo_id from book where Bo_name = @uL", da.GetConnection());
+            command = new MySqlCommand("Select Bo_id from book where Bo_name = @uL", da.GetConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = Or_Bo_id.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -42,7 +62,7 @@ namespace BookClub___AfterLife
             adapter.SelectCommand = command1;
             adapter.Fill(worker);
             MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
-            if (Check(table, worker))
+            if (Check(table, worker)&& Or_Cl_id.Text!="" && Or_Bo_id.Text != "" && Or_description.Text != "")
             {
                 command1 = new MySqlCommand("INSERT INTO orders (Or_Cl_id,Or_Bo_id,Or_description) select сlient.Cl_id as Or_Cl_id, book.Bo_id as Or_Bo_id, @wL as Or_description from сlient,book where Cl_name = @wN and Bo_name = @wP", da.GetConnection());
                 command1.Parameters.Add("@wN", MySqlDbType.VarChar).Value = Or_Cl_id.Text;
@@ -51,8 +71,10 @@ namespace BookClub___AfterLife
                 da.openConection();
                 command1.ExecuteNonQuery();
                 da.closeConection();
+                MessageBox.Show("Выполненно");
                 Close();
             }
+            else { MessageBox.Show("Введите данные"); }
 
 
         }

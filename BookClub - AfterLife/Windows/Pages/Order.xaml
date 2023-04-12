@@ -12,6 +12,7 @@
         <Grid>
             <DataGrid Margin="0,30,0,30"  x:Name="Tablichka"  Loaded="grid_Loaded" ColumnWidth="*"
                     DataGrid.CanUserResizeColumns="True"  DataGrid.CanUserResizeRows="False" DataGrid.CanUserAddRows="False">
+  
             </DataGrid>
         </Grid>
     </Grid>

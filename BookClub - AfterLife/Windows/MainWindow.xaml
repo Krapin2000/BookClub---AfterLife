@@ -19,11 +19,13 @@
                         <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Вернуть книгу" Click="Close_Click"/>
                     </MenuItem>
                     <MenuItem  Header="Добавить"  Visibility="Visible">
-                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Регистрация" Click="Newbe_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Регистрация работника" Click="Newbe_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Регистрация клиента" Click="NewCli_Click"/>
                         <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Поставка книг" Click="Add_Click"/>
                     </MenuItem>
                     <MenuItem  Header="Удалить"  Visibility="Visible">
-                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Удалить человека" Click="Kill_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Удалить запись о работнике" Click="Kill_Click"/>
+                        <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Удалить запись о клиенте" Click="Leave_Click"/>
                         <MenuItem Template="{StaticResource bluLock_Menuitem}" Header="Удалить книгу" Click="Upp_Click"/>
                     </MenuItem>
                 </Menu>
@@ -35,11 +37,7 @@
             </StackPanel>
         </DockPanel>
         <Grid>
-            <Grid.ContextMenu>
-                <ContextMenu Width="150px" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
-                    <MenuItem Template="{StaticResource bluLock_Menuitem}"  Header="Удалить выделенное" />
-                </ContextMenu>
-            </Grid.ContextMenu>
+
             <Frame x:Name="Peopple" Source="Pages\People.xaml" Visibility="Collapsed"/>
             <Frame x:Name="Books" Source="Pages\Books.xaml" Visibility="Collapsed" />
             <Frame x:Name="Genre" Source="Pages\Genre.xaml" Visibility="Collapsed" />

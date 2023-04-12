@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Normal"
         WindowStyle="None"
-        Title="Destroy_book" Height="350" Width="350">
+        Title="Destroy_book" Height="350" Width="350" Loaded="Form_Loaded">
     <Grid Background="{DynamicResource blueLock_back}">
         <DockPanel Style="{DynamicResource bluLock_menu_panel_style}"   VerticalAlignment="Top" >
             <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
@@ -27,7 +27,7 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Height="54" Width="300" >
                 <Label Content="Название" Style="{DynamicResource bluLock_label}" />
-                <TextBox x:Name="K_name"  Style="{DynamicResource bluLock_text_box}"/>
+                <ComboBox x:Name="K_name"  />
             </StackPanel>
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Height="142" Width="300"    >
                 <Label Content="Причина" Style="{DynamicResource bluLock_label}" />
